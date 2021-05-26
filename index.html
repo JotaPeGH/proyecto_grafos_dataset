@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang = es>
+    <head>
+        <title>Practica de Grafos</title>
+        <meta charset = "UTF-8 ">
+        <!--Hoja de estilos de css-->
+        <link rel = "stylesheet" href = "styles.css">
+        <!--Main de JavaScript-->
+        <script src = "src/main.js" type="text/javascript" href = "main.js"> </script>
+        <script src = "src/dijkstras.js" type="text/javascript" href = "dijkstras.js"> </script>
+        <!--Link de la libreria VIS.JS-->
+        <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+        <!--Links de network-->
+        <link rel="preload" href="styles.css" as="style">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+      <form id="form1" >
+        <h1 class="Titulo1">Proyecto 1 de grafos</h1>
+        <h1 class="Titulo2">Ingrese el tipo de grafo</h1>
+        <div class="seleccion">
+        <input type = "radio"  name = "Direccion" value = "Dirigido"  oninvalid ="this.setCustomValidity('Por Favor seleccione una de las opciones')"> Dirigido</input>
+        <input type = "radio"  name = "Direccion" value = "NoDirigido" checked required oninvalid  ="this.setCustomValidity('Por Favor seleccione una de las opciones')"> No Dirigido</input>
+        <br><br>
+      </form>
+      <button type="button" id="locale" value="es" onclick="draw();">Comenzar Grafos</button>
+      </div>
+      <br>
+      <div id="node-popUp">
+        <span id="node-operation">node</span> <br />
+        <table style="margin: 1">
+          <caption></caption>
+          <th></th>
+          <tbody>
+            <tr>
+              <td>id</td>
+              <td><input id="node-id" value="new value" /></td>
+            </tr>
+            <tr>
+              <td>Etiquetado</td>
+              <td><input id="node-label" value="new value" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <input type="button" value="save" id="node-saveButton" />
+        <input type="button" value="cancel" id="node-cancelButton" />
+      </div>
+      <br>
+      <div id="edge-popUp">
+        <span id="edge-operation">edge</span> <br />
+        <table style="margin: auto">
+          <caption></caption>
+          <th></th>
+          <tbody>
+            <tr>
+              <td>label</td>
+              <td><input id="edge-label" value="new value" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <input type="button" value="save" id="edge-saveButton" />
+        <input type="button" value="cancel" id="edge-cancelButton" />
+      </div>
+     
+      <div id="mynetwork"></div>
+    <div>
+        <td>
+          <div class="seleccion">
+            <button id="matrix" onclick="llenarMatriz();">Reproducir Matriz</button>
+        </div>
+          </td>
+        <h2 class="Titulo2">Matriz</h2>
+        <table id="table">
+          <caption></caption>
+          <th></th>
+        </table>
+        
+        
+        
+        <div>
+          <h2 class="Titulo2">Tabla Caminos</h2>
+          <table id="TablaCam">
+            <caption></caption>
+            <th></th>
+          </table>
+        </div>  
+        <div id="conex"></div>
+    </div>
+    <div>
+      <h2>Hamiltoniano/Euleriano</h2>
+      <div id=hamiltoniano></div>
+      <div id=euleriano></div>
+    </div>
+
+    <td>
+      <h2>Camino Mas Corto</h2>
+      <label id="Camino"></label>
+      <label id="costo"></label>
+    </td>
+    <div>
+      <td>
+        <table>
+          <caption></caption>
+          <th></th>
+          <td>
+            <input type="text" id="desde" value="ID Nodo de Inicio" onfocus=this.value="">
+            <input type="text" id="hasta" value="ID Nodo de Llegada" onfocus=this.value="">
+            <button id="busqueda" onclick="shortestPath()">Buscar Camino</button>
+          </td>
+        </table>    
+      </td>
+    </div> 
+    <td>
+      <h2>Flujo máximo</h2>
+      <label id="Camino_placeholder"></label>
+      <label id="costo_placeholder"></label>
+    </td>
+    <div>
+      <td>
+        <table>
+          <caption></caption>
+          <th></th>
+          <td>
+            <input type="text" id="inicio" value="ID Nodo de Inicio" onfocus=this.value="">
+            <input type="text" id="final" value="ID Nodo de Llegada" onfocus=this.value="">
+            <button id="busqueda_placeholder" onclick="LlamarFord()">Buscar</button>
+          </td>
+        </table>    
+      </td>
+    </div>
+    <div>
+      <tr>
+        <td>
+          <h2>Arbol Generador Minimo con Kruskal</h2>
+          <button id="arbol-generador" onclick="kruskal()">Ver Arbol</button>
+          <div id="mynetwork2"></div>
+        </td>
+      </tr>
+    </div> 
+    <script src = "src/main.js" type="text/javascript" href = "main.js"> </script>
+    <script src = "src/dijkstras.js" type="text/javascript" href = "dijkstras.js"> </script>
+  </body>
+</html>
